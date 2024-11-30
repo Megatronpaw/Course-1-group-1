@@ -5,7 +5,7 @@
      {
        sum = sum + num[i];
 
-        if (i == 4)
+        if (i == num.Length - 1)
          {
            Console.WriteLine(sum);
          } 
@@ -40,13 +40,15 @@
        }
      5)
      int[] num = { -1, 24, -3, 45, -51 };
+     int a = 0; 
      for (int i = 0; i < num.Length; i++)
        {
          if (num[i] < 0)
           {
-             Console.WriteLine(num[i]);
+             a++;
           }
        }
+       Console.WriteLine(a);
     6)
 
 int[] num = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
