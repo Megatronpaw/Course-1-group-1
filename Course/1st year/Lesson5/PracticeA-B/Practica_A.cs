@@ -11,7 +11,6 @@ for (int i = 0; i <= num.Length - N; i++)
     for (int j = 0; j < N; j++)
     {
         a += num[i + j];
-
         num2[j] = num[i + j];
    
     }
@@ -22,17 +21,14 @@ for (int i = 0; i <= num.Length - N; i++)
         {
             result[k] = num2[k];
         }
-
     }
         a = 0;    
 }
-
 foreach (int i in result)
 {
     Console.Write(i + " ");
 } 
 // 2)
-
 
 int[] num = { 1, 3, 6, 3, 2, 5, 4, 7, 6, 3, 1, 4};
 Array.Sort(num);
@@ -65,57 +61,37 @@ Console.WriteLine($"\n{unic}");
 
 //    3) 
 
-int[] num = { 1, 1, 1, 5, 5, 5};
-
+int[] num = {2, 1, 4, 7, 8, 1, 4, 7, 6};
 Array.Sort(num);
-int Kol = 0;
 int a = 0;
-int b = 0;
-int[] res = new int[num.Length];
+int max = -99;
+int[] copyNum = new int[num.Length + 1];
 for (int i = 0; i < num.Length; i++)
 {
-    if (i < num.Length - 1)
+    a = 0;
+    if (i == 0 || num[i] != num[i - 1])
     {
-        if (num[i] == num[i + 1])
+        for (int j = 0; j < num.Length; j++)
         {
-            for (int j = 0; j < num.Length; j++)
+            if (num[i] == num[j])
             {
-                if (num[i] == num[j])
-                {
-                    a++;
-
-                }
-                if (j == num.Length - 1)
-                {
-                    if (Kol == a)
-                    {
-                        
-                       for (int k = 0; k < a; k++)
-                        {   
-                            if (res[res.Length - 1] == 0)
-                            {
-                                res[b] = num[i];
-                                b++;
-                            }
-                        }
-                        
-                        
-                    }
-                    if (Kol < a)
-                    {
-                        Kol = a;
-                    }
-                    a = 0;
-                }
-
+                a++;
             }
+            copyNum[i + 1] = a;
+            if (max < a)
+            {
+                max = a;
+            }
+            
+
         }
     }
 }
-Console.WriteLine("Самые частые:");
-foreach (int i in res)
+for (int i = 0; i < copyNum.Length; i++)
 {
-    Console.Write(i + " ");
+    if (copyNum[i] == max)
+    {
+        Console.WriteLine($"{i} в количестве {copyNum[i]}шт.");
+    }
 }
-Console.WriteLine($"\nВ количестве {Kol} шт.");
 */
