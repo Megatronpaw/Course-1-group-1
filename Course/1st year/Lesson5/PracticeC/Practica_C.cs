@@ -1,33 +1,48 @@
-﻿int[] num = { 2, 0, 1, 3, 4, 0, 1 };
+﻿using System;
+
+int[] num = { 1, 2, 0, 5, 1, 0, 0, 0, 1, 1, 2, 0, 0 };
 bool win = false;
-int b = 0;
 int curNum = 0;
 int a = 0;
+int shag = 0;
 
 for (int i = 0; i < num.Length;)
 {
-    
+
     curNum = num[i];
 
     if (curNum == 0)
     {
         i = num.Length;
-        b++;
+        break;
     }
 
     a = i + curNum;
 
-    if (a >= num.Length - 1 && b == 0)
+    if (a >= num.Length - 1)
     {
+        shag++;
         win = true;
+        break;
+    }
+    if (num[i] >= num.Length - 1)
+    {
+        shag++;
+        win = true;
+        break;
+    }
+    i = a;
+
+    if (i <= num.Length - 1)
+    {
+        shag++;
     }
 
-    i = a;
 }
 
 if (win)
 {
-    Console.WriteLine("Данный массив можно пройти!");
+    Console.WriteLine($"Данный массив можно пройти! Минимальное количество шагов: {shag}");
 }
 else
 {
