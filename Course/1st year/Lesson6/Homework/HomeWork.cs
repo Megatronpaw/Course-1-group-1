@@ -1,4 +1,6 @@
 ﻿// 1
+using System;
+
 int[] num = { 2, 1, 4, 7, 8, 1, 4, 7, 6 };
 int a = 0;
 int b = 0;
@@ -41,38 +43,37 @@ int NUM(int[] num)
 
 Console.WriteLine($"Чаще всего встречается {NUM(num)}");
 //2
-int[] num1 = { 1, 2, 3, 4, 5 };
-bool exit = false;
-int ctrl = 1;
-while (exit == false)
+int[,] matrix =
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 },
+            };
+int[,] transposed = Transposed(matrix);
+PrintMatrix(transposed);
+
+int[,] Transposed(int[,] matrix)
 {
-    if (ctrl == 1)
+    int rows = matrix1.GetLength(0);
+    int cols = matrix1.GetLength(1);
+    int[,] result = new int[cols, rows];
+    for (int i = 0; i < rows; i++)
     {
-        Console.WriteLine();
-        foreach (int i in num1)
+        for (int j = 0; j < cols; j++)
         {
-            Console.Write(i + " ");
+            result[j, i] = matrix1[i, j];
         }
     }
-    Console.WriteLine("\nВведите 1, если хотите записать массив в столбик. Или 2, чтобы выйти.");
-     ctrl = int.Parse(Console.ReadLine());
-    if (ctrl >= 2)
+    return result;
+}
+void PrintMatrix(int[,] matrix)
+{
+    for (int i = 0; i < matrix2.GetLength(0); i++)
     {
-        break;
-    }
-    if (ctrl == 1)
-    {
-        Console.WriteLine();
-        foreach (int i in num1)
+        for (int j = 0; j < matrix2.GetLength(1); j++)
         {
-            Console.WriteLine(i);
+            Console.Write(matrix2[i, j] + " ");
         }
-        ctrl = 0;
-    }
-    Console.WriteLine("Введите 1, если хотите записать массив в строчку. Или 2, чтобы выйти.");
-    ctrl = int.Parse(Console.ReadLine());
-    if (ctrl >= 2)
-    {
-        break;
+        Console.WriteLine();
     }
 }
