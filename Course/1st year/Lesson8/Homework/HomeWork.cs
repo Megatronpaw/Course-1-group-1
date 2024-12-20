@@ -30,7 +30,7 @@ double CulculateCompoundInterest(double balance, float godovaya_stavka, int year
     {
         stavka *= (1 + (godovaya_stavka / 100));
     }
-    double sum = balance * stavka;
+    double sum = balance * stavka + balance;
     return sum;
 }
 double balance = 100;
